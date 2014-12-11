@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# https://github.com/rubygems/rubygems/archive/v0.9.5.tar.gz
+# http://rubygems.org/downloads/rake-0.8.0.gem
+# http://rubygems.org/downloads/activesupport-1.4.4.gem
+# http://rubygems.org/downloads/activerecord-1.15.6.gem
+# http://rubygems.org/downloads/actionpack-1.13.6.gem
+# http://rubygems.org/downloads/actionmailer-1.3.6.gem
+# http://rubygems.org/downloads/actionwebservice-1.2.6.gem
+# http://rubygems.org/downloads/rails-1.2.6.gem
+# http://rubygems.org/downloads/fcgi-0.8.7.gem
+
+# rails app
+
+# cp rails-1.2.6/configs/lighttpd.conf app/config/
+
+# cd app/
+
+# lighttpd -D -f config/lighttpd.conf
+
+# hit localhost:3000
+
+# TODO
+# Figure out how to set up lighttpd or nginx to reverse proxy
+# to lighttpd running the FastCGI process.

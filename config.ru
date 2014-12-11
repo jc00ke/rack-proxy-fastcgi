@@ -20,7 +20,8 @@ builder = Rack::Builder.new do
   end
 
   use Rack::ReverseProxy do
-    reverse_proxy "/", "http://127.0.0.1:4567"
+    reverse_proxy(/\A\/rails(.*)\z/,  "http://127.0.0.1:3000$1")
+    reverse_proxy(/\A\/poc(.*)\z/,    "http://127.0.0.1:4567$1")
   end
 
   map '/' do

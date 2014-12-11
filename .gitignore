@@ -1,0 +1,5 @@
+app/log
+app/tmp/sessions
+app/tmp/sockets
+app/tmp/cache
+app/tmp/pids

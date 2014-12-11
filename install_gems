@@ -1,25 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env ruby
+
+raise "Must run on Ruby 1.8!" if RUBY_VERSION.to_f > 1.8
 
 # https://github.com/rubygems/rubygems/archive/v0.9.5.tar.gz
-# http://rubygems.org/downloads/rake-0.8.0.gem
-# http://rubygems.org/downloads/activesupport-1.4.4.gem
-# http://rubygems.org/downloads/activerecord-1.15.6.gem
-# http://rubygems.org/downloads/actionpack-1.13.6.gem
-# http://rubygems.org/downloads/actionmailer-1.3.6.gem
-# http://rubygems.org/downloads/actionwebservice-1.2.6.gem
-# http://rubygems.org/downloads/rails-1.2.6.gem
-# http://rubygems.org/downloads/fcgi-0.8.7.gem
+puts "Install RubyGems by hand :-("
+Dir.chdir('gems') do
+  version = "v0.9.5"
+  puts "Unpacking RubyGems"
+  `tar -xzvf #{version}.tar.gz`
+  Dir.chdir(version) do
+    puts "Running setup.rb"
+    `ruby setup.rb`
+  end
 
-# rails app
+  # http://rubygems.org/downloads/rake-0.8.0.gem
+  # http://rubygems.org/downloads/activesupport-1.4.4.gem
+  # http://rubygems.org/downloads/activerecord-1.15.6.gem
+  # http://rubygems.org/downloads/actionpack-1.13.6.gem
+  # http://rubygems.org/downloads/actionmailer-1.3.6.gem
+  # http://rubygems.org/downloads/actionwebservice-1.2.6.gem
+  # http://rubygems.org/downloads/rails-1.2.6.gem
+  # http://rubygems.org/downloads/fcgi-0.8.7.gem
+  Dir['*.gem'].each do |gem|
+    puts "Installing #{gem}"
+    `gem install -l #{gem}`
+  end
+end
 
-# cp rails-1.2.6/configs/lighttpd.conf app/config/
+puts "cd into app/"
+puts "and run `lighttpd -D -f config/lighttpd.conf`"
+puts "then hit localhost:3000 to make sure it works"
 
-# cd app/
-
-# lighttpd -D -f config/lighttpd.conf
-
-# hit localhost:3000
-
-# TODO
-# Figure out how to set up lighttpd or nginx to reverse proxy
-# to lighttpd running the FastCGI process.

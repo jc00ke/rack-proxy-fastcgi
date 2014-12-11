@@ -20,8 +20,8 @@ Terminal 2
 $ rackup
 ```
 
-Then hit `localhost:9292/` for successful proxy req and
-`localhost:9292/no-sleep-till` for request that'll time out.
+Then hit `localhost:9292/poc` for successful proxy req and
+`localhost:9292/poc/timeout` for request that'll time out.
 This req will return `200`.
 
 ## Resources

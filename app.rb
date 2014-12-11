@@ -5,10 +5,8 @@ class App < Sinatra::Application
     "Hi from Sinatra"
   end
 
-  get "/no-sleep-till" do
-    til_brooklyn = ENV.fetch("ENOVA_TIMEOUT", 5).to_i
-    # no
-    sleep til_brooklyn
+  get "/timeout" do
+    sleep 5
     "BROOKLYN!"
   end
 end

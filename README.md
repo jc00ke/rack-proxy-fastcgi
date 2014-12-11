@@ -35,19 +35,10 @@ Now you can hit `localhost:9292/rails` to get the homepage and
 `localhost:9292/rails/timeout` for the request that'll time out.
 This req will also return a `200`.
 
-## Resources
+## Other Ideas
 
-* [Sinatra + FastCGI](http://recipes.sinatrarb.com/p/deployment/fastcgi)
-* [Rack Handlers](https://github.com/rack/rack/tree/master/lib/rack/handler)
-* [Rack::Handler::LSWS](http://www.rubydoc.info/github/rack/rack/Rack/Handler/LSWS)
-
-## Ideas
-
-* Get simple Sinatra app to run via FastCGI
-* Figure out how to proxy that app through Puma
 * Rewrite [mongrel/rails.rb](https://github.com/mongrel/mongrel/blob/master/lib/mongrel/rails.rb)
-  handler to use rack instead of Mongrel.
-* Look into Cherokee, see if there's something there
+  handler to use rack instead of Mongrel. (from Evan)
 
 ### Notes
 
